@@ -41,4 +41,4 @@ jobs:
         run: docker ps
 
       - name: Run command in container
-        run: docker exec simplebackend_notes_1 tail -n 100 /path/to/your/application/logs/file.log
+        run: docker exec simplebackend_notes_1 ls /path/to/your/application/logs/
