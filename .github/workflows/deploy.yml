@@ -39,6 +39,3 @@ jobs:
 
       - name: Displaying list of running containers
         run: docker ps
-
-      - name: Run command in container
-        run: docker exec simplebackend_notes_1 ls /path/to/your/application/logs/
