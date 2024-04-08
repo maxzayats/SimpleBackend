@@ -13,12 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Setup Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '21'
-          distribution: 'adopt'
-
       - name: Start ngrok
         run: |
           ./ngrok http 8080 > /dev/null &
@@ -27,3 +21,16 @@ jobs:
 
       - name: Show ngrok URL
         run: cat ngrok_url.txt
+
+      - name: Copy Docker Compose file to server
+        run: scp path/to/your/docker-compose.yml user@your-server:/path/to/destination
+
+      - name: SSH into server and start Docker containers
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_PASSWORD }}
+          script: |
+            cd /path/to/destination
+            docker-compose up -d
