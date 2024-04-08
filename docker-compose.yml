@@ -1,25 +1,23 @@
 version: '3.9'
 
+networks:
+  simple-backend:
+
 services:
 
   db:
     image: postgres
     restart: always
-    # set shared memory limit when using docker-compose
     shm_size: 128mb
-    # or set shared memory limit when deploy via swarm stack
-    #volumes:
-    #  - type: tmpfs
-    #    target: /dev/shm
-    #    tmpfs:
-    #      size: 134217728 # 128*2^20 bytes = 128Mb
     environment:
       POSTGRES_USER: note
       POSTGRES_PASSWORD: 2222
       POSTGRES_DB: notes
-      PGDATA: .src/main/resources/database
+      PGDATA: /src/main/resources/database
     ports:
       - "5432:5432"
+    networks:
+      - simple-backend
 
   adminer:
     image: adminer
@@ -28,6 +26,8 @@ services:
       - "8081:8081"
     environment:
       - ADMINER_PORT=8081
+    networks:
+      - simple-backend
 
   notes:
     image: amazoncorretto:21-alpine
@@ -38,8 +38,5 @@ services:
     ports:
       - "8080:8080"
     restart: always
-
-networks:
-  default:
-    external:
-      name: bridge
+    networks:
+      - simple-backend
