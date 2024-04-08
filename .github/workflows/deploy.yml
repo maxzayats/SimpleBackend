@@ -36,3 +36,6 @@ jobs:
 
       - name: Start the Docker containers
         run: docker-compose up -d
+
+      - name: Displaying list of running containers
+        run: docker ps
