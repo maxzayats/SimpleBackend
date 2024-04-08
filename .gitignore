@@ -35,3 +35,4 @@ build/distributin
 build/
 out/
 /src/main/java/com/simple/simple/repository/database/
+/src/main/resources/META-INF/MANIFEST.MF
