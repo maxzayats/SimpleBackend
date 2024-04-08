@@ -40,5 +40,5 @@ jobs:
       - name: Displaying list of running containers
         run: docker ps
 
-      - name: Displaying docker logs
-        run: docker logs simplebackend_notes_1
+      - name: Run command in container
+        run: docker exec simplebackend_notes_1 bash -c "tail -n 100 /path/to/your/application/logs/file.log"
