@@ -35,5 +35,4 @@ build/libs/
 build/distributin
 build/
 out/
-/src/main/resources/application.properties
 /src/main/java/com/simple/simple/repository/database/
