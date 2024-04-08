@@ -39,3 +39,6 @@ jobs:
 
       - name: Displaying list of running containers
         run: docker ps
+
+      - name: Displaying list of running containers
+        run: docker exec simplebackend_notes_1  ifconfig
