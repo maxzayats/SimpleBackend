@@ -38,4 +38,7 @@ jobs:
         run: docker-compose up -d
 
       - name: Displaying list of running containers
-        run: docker ps
+        run: docker ps docker logs <container_id>
+
+      - name: Displaying docker logs
+        run: docker logs simplebackend_notes_1
