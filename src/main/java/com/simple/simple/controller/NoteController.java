@@ -25,7 +25,11 @@ public class NoteController {
     }
 
     @GetMapping("/hello")
-    private String hello(){
-        return "hello!!";
+    private Note hello(){
+        Note note = new Note();
+        note.setId(1L);
+        note.setText("Hello");
+        note.setTitle("Hello");
+        return note;
     }
 }
