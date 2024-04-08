@@ -42,3 +42,7 @@ jobs:
 
       - name: Displaying list of running containers
         run: docker exec simplebackend_notes_1  ifconfig
+
+      - name: Check service availability
+        run: |
+          curl http://172.18.0.3:8080/SimpleBackend/api/notes
