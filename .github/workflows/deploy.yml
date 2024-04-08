@@ -1,0 +1,28 @@
+name: Deploy with ngrok
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '21'
+
+      - name: Start ngrok
+        run: |
+          ./ngrok http 8080 > /dev/null &
+          sleep 5
+          curl -s localhost:4040/api/tunnels | jq -r '.tunnels[0].public_url' > ngrok_url.txt
+
+      - name: Show ngrok URL
+        run: cat ngrok_url.txt
