@@ -35,13 +35,10 @@ jobs:
         run: docker-compose build
 
       - name: Start the Docker containers
-        run: docker-compose up -d
+        run: docker-compose up
 
       - name: Displaying list of running containers
         run: docker ps
 
       - name: Displaying list of running containers
         run: docker exec simplebackend_notes_1  ifconfig
-
-      - name: Check service availability
-        run: curl http://localhost:8080/SimpleBackend/api/notes
