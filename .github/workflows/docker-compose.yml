@@ -20,8 +20,3 @@ jobs:
 
       - name: Build and run Docker Compose services
         run: docker-compose up -d
-
-      # Add additional steps here, such as testing your services or deploying
-
-      - name: Stop Docker Compose services
-        run: docker-compose down
