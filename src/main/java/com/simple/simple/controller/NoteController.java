@@ -3,6 +3,7 @@ package com.simple.simple.controller;
 import com.simple.simple.model.Note;
 import com.simple.simple.repository.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,5 +22,10 @@ public class NoteController {
     @PostMapping("/api/notes")
     private List<Note> addNotes(@RequestBody List<Note> notes){
         return repository.saveAll(notes);
+    }
+
+    @GetMapping("/hello")
+    private String hello(){
+        return "hello!!";
     }
 }
