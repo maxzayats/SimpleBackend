@@ -26,8 +26,6 @@ replay_pid*
 .iml
 .ipr
 .gradle/
-gradlew
-gredle.bat
 gradle-wrapper.properties
 build.gradle.kts
 build/libs/
