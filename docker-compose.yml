@@ -19,16 +19,6 @@ services:
     networks:
       - simple-backend
 
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - "8081:8081"
-    environment:
-      - ADMINER_PORT=8081
-    networks:
-      - simple-backend
-
   notes:
     image: amazoncorretto:21-alpine
     volumes:
