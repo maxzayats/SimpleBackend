@@ -42,3 +42,9 @@ jobs:
 
       - name: Displaying list of running containers
         run: docker exec simplebackend_notes_1  ifconfig
+
+      - name: Execute curl command inside the container
+        run: docker exec simplebackend_notes_1 curl http://localhost:8080/hello
+
+      - name: Execute curl command outside the container
+        run: curl http://localhost:8080/hello
