@@ -39,3 +39,9 @@ jobs:
 
       - name: Displaying list of running containers
         run: docker ps
+
+      - name: Install telnet
+        run: sudo apt-get install telnet
+
+      - name: Checking port 8080
+        run: telnet localhost 8080
